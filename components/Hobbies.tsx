@@ -27,7 +27,7 @@ const interests = [
   {
     id: 4,
     title: "Discipline",
-    image: "/gym.heic",
+    image: "/gym.jpg",
     icon: <Dumbbell className="w-6 h-6" />,
     desc: "Pushing limits, physical & mental."
   }
