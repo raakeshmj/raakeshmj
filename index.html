@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Raakesh MJ | Full Stack Developer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Manrope', 'sans-serif'],
+              display: ['Syne', 'sans-serif'],
+              tech: ['Rajdhani', 'sans-serif'],
+            },
+            colors: {
+              background: 'var(--background)',
+              surface: 'var(--surface)',
+              primary: 'var(--primary)',
+              accent: 'var(--accent)',
+              secondary: 'var(--secondary)',
+              'card-bg': 'var(--card-bg)',
+            },
+            backgroundImage: {
+              'noise': "url('https://grainy-gradients.vercel.app/noise.svg')",
+              'grid-pattern': "linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px)",
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'bar-dance': 'barDance 1s ease-in-out infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              barDance: {
+                '0%, 100%': { transform: 'scaleY(1.0)' },
+                '50%': { transform: 'scaleY(0.5)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --background: #050505; /* True Black */
+        --surface: #121212;
+        --card-bg: #18181b;
+        --primary: #ffffff;
+        --accent: #cdff00; /* Neon Lime */
+        --accent-rgb: 205, 255, 0;
+        --secondary: #e2e8f0; /* Slate 200 - Very Bright Grey for Dark Mode */
+        
+        /* Mobile Tilt Variables */
+        --tilt-x: 0deg;
+        --tilt-y: 0deg;
+      }
+
+      html.light {
+        --background: #f0f4f8; /* Light Blue-Grey */
+        --surface: #ffffff;
+        --card-bg: #ffffff;
+        --primary: #0f172a; /* Slate 900 */
+        --accent: #4f46e5; /* Indigo */
+        --accent-rgb: 79, 70, 229;
+        --secondary: #475569; /* Slate 600 */
+      }
+
+      html {
+        scroll-padding-top: 120px;
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: var(--background);
+        color: var(--primary);
+        overflow-x: hidden;
+        transition: background-color 0.5s ease, color 0.5s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      /* Outline Text Logic */
+      .text-outline {
+        -webkit-text-stroke: 1px var(--primary);
+        color: transparent;
+        opacity: 0.3;
+      }
+      html.dark .text-outline {
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+        opacity: 1;
+      }
+      
+      .text-outline-accent {
+        -webkit-text-stroke: 1px var(--accent);
+        color: transparent;
+      }
+
+      /* Premium Card Logic */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      html.dark .glass-card {
+        background: #131313; /* Solid Dark - No Transparency for Clarity */
+        border: 1px solid rgba(255, 255, 255, 0.12); /* Brighter border */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+        background-image: linear-gradient(145deg, #161616 0%, #0f0f0f 100%);
+      }
+      
+      .glass-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-4px);
+      }
+      
+      html.dark .glass-card:hover {
+        box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.15);
+        border-color: var(--accent);
+      }
+      
+      /* 3D Tilt Effect Class */
+      .parallax-tilt {
+        transform: perspective(1000px) rotateX(var(--tilt-y)) rotateY(var(--tilt-x));
+        transition: transform 0.1s ease-out;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--background);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      html.light ::-webkit-scrollbar-thumb {
+        background: #ccc;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+      }
+      
+      .clip-image-slant {
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      }
+      .clip-portrait-hex {
+        clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+      }
+      
+      /* Hide Scrollbar Utility for Horizontal Carousel */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.33.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
