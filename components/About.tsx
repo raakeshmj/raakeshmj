@@ -121,7 +121,7 @@ export const About: React.FC = () => {
                             </div>
 
                             <div className="flex flex-wrap gap-6">
-                                <a href="https://drive.google.com/file/d/1XmyZ_2zxKf9Hcp7VmEtMsKpQtak0E07h/view?usp=drive_link" target="_blank" className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-primary/20 hover:border-accent text-primary rounded-full overflow-hidden transition-all duration-300">
+                                <a href="https://drive.google.com/file/d/1M8LcSS9AmkK3FfmWt6FN-lmVdR6J1tWi/view?usp=drive_link" target="_blank" className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-primary/20 hover:border-accent text-primary rounded-full overflow-hidden transition-all duration-300">
                                     <span className="absolute inset-0 bg-accent/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                                     <Download className="w-5 h-5 group-hover:text-accent transition-colors" />
                                     <span className="font-bold uppercase tracking-wider text-sm relative z-10 group-hover:text-accent transition-colors">Download Resume</span>
